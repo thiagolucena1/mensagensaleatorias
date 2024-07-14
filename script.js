@@ -1,5 +1,7 @@
 var button = document.querySelector('#magicButton');
 var msg = document.querySelector('#output')
+var counter = document.querySelector('#counter')
+var clicks = 0
 
 var mensagem = ["Você é capaz de grandes coisas!",
     "Acredite nos seus sonhos.",
@@ -31,13 +33,26 @@ var mensagem = ["Você é capaz de grandes coisas!",
         "#FFCCBC"  // Deep Orange Light
     ]
 
-
+    var special = "Parabéns, você atingiu um numero multiplo de 5"
+    var goldBackGround = "#FFD700"
 
     button.addEventListener('click' , function() {
-    const arrayAleatory = Math.floor(Math.random() * mensagem.length)
-    const colorArray = Math.floor(Math.random() * color.length)
-    document.body.style.backgroundColor = color[colorArray]
     
-    msg.innerHTML = (mensagem[arrayAleatory])
+   
+    
+        clicks++;
+        counter.textContent = `Contador : ${clicks}`
+
+        if (clicks % 5 === 0){
+            msg.innerHTML = special
+            document.style.backgroundColor = goldBackGround;
+        }  else
+         {const arrayAleatory = Math.floor(Math.random() * mensagem.length)
+            const colorArray = Math.floor(Math.random() * color.length) 
+            document.body.style.backgroundColor = color[colorArray]
+   
+        msg.innerHTML = (mensagem[arrayAleatory])
+         }
 })
+
 
